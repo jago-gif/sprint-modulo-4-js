@@ -62,7 +62,7 @@ document.getElementById("buscar").value = "";
 
 document.getElementById("borrar").addEventListener("click", function () {
     pokeInfo = [];
-
+    api = "https://pokeapi.co/api/v2/pokemon/";
     const divElement = document.getElementById("personaje");
     while (divElement.firstChild) {
       divElement.removeChild(divElement.firstChild);
