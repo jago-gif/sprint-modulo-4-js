@@ -4,3 +4,36 @@ font-family: 'Pokemon Hollow', sans-serif;
 h5{
 font-family: 'Pokemon Solid', sans-serif;
 }
+
+@import url('https://fonts.googleapis.com/css?family=Lato:100&display=swap');
+
+
+
+
+
+
+
+.batallaPokemon {
+    width: 180px;
+    height: 60px;
+    cursor: pointer;
+    background: transparent;
+    border: 1px solid #5f0000;
+    outline: none;
+    transition: 1s ease-in-out;
+}
+
+
+
+.batallaPokemon:hover {
+    transition: 1s ease-in-out;
+    background: #da4f5b;
+}
+
+
+
+.batallaPokemon span {
+    color: rgb(29, 23, 23);
+    font-size: 18px;
+    font-weight: 100;
+}

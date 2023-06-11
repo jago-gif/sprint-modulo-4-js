@@ -14,6 +14,7 @@ const duelistaDos = document.getElementById("duelistaDos");
 const masPokes = document.getElementById("Siguiente");
 const btnBorrarPokemones = document.getElementById("borrar");
 const btnCargarPokemones = document.getElementById("cargarPokemones");
+const btnBatalla = document.getElementById("batalla");
 
 
 
@@ -203,6 +204,9 @@ document.getElementById("busquedaEnApi").addEventListener("click", function () {
 function duelo() {
     if(duelistas.length > 2){
         return alert("Solo puedes elegir 2 duelistas");
+    }
+    if(duelistas.length == 1){
+        btnBatalla.classList.remove("d-none");
     }
 
   for(let i = 0;duelistas.length; i++ ){
