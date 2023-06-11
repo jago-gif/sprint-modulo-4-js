@@ -12,6 +12,9 @@ const campoBatalla = document.getElementById("generar-duelo");
 const duelistaUno = document.getElementById("duelistaUno");
 const duelistaDos = document.getElementById("duelistaDos");
 const masPokes = document.getElementById("Siguiente");
+const btnBorrarPokemones = document.getElementById("borrar");
+const btnCargarPokemones = document.getElementById("cargarPokemones");
+
 
 
 
@@ -44,7 +47,10 @@ const buscarPersonajes = async () => {
 
 document.getElementById("cargarPokemones").addEventListener("click", function () {
   buscarPersonajes();
-      masPokes.classList.remove("d-none");
+    masPokes.classList.remove("d-none");
+    btnCargarPokemones.classList.add("d-none");
+    btnBorrarPokemones.classList.remove("d-none");
+
 
 });
 document.getElementById("Siguiente").addEventListener("click", function () {
@@ -61,6 +67,10 @@ document.getElementById("borrar").addEventListener("click", function () {
     while (divElement.firstChild) {
       divElement.removeChild(divElement.firstChild);
     }
+    masPokes.classList.add("d-none");
+    btnCargarPokemones.classList.remove("d-none");
+    btnBorrarPokemones.classList.add("d-none");
+
 });
 
 document.getElementById("buscar").addEventListener("keyup", function () {
