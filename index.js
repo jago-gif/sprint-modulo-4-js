@@ -11,6 +11,8 @@ const container = document.getElementById("personaje");
 const campoBatalla = document.getElementById("generar-duelo");
 const duelistaUno = document.getElementById("duelistaUno");
 const duelistaDos = document.getElementById("duelistaDos");
+const masPokes = document.getElementById("Siguiente");
+
 
 
 
@@ -26,14 +28,7 @@ const buscarPersonajes = async () => {
             personajesActivos = personajes.results;
             if (sigPag == null) {
               document.querySelector("#Siguiente").disabled = true;
-            } else {
-              document.querySelector("#Siguiente").disabled = false;
-            }
-            if (antPag == null) {
-              document.querySelector("#anterior").disabled = true;
-            } else {
-              document.querySelector("#anterior").disabled = false;
-            }
+            } 
         } else {
           
         personajesActivos = personajes;
@@ -47,8 +42,11 @@ const buscarPersonajes = async () => {
   }
 };
 
-buscarPersonajes();
+document.getElementById("cargarPokemones").addEventListener("click", function () {
+  buscarPersonajes();
+      masPokes.classList.remove("d-none");
 
+});
 document.getElementById("Siguiente").addEventListener("click", function () {
   api = sigPag;
 document.getElementById("buscar").value = "";
@@ -56,10 +54,13 @@ document.getElementById("buscar").value = "";
   buscarPersonajes();
 });
 
-document.getElementById("anterior").addEventListener("click", function () {
-  api = antPag;
-  document.getElementById("buscar").value = ""
-  buscarPersonajes();
+document.getElementById("borrar").addEventListener("click", function () {
+    pokeInfo = [];
+
+    const divElement = document.getElementById("personaje");
+    while (divElement.firstChild) {
+      divElement.removeChild(divElement.firstChild);
+    }
 });
 
 document.getElementById("buscar").addEventListener("keyup", function () {
@@ -76,7 +77,6 @@ document.getElementById("buscar").addEventListener("keyup", function () {
 });
 
 let cargarPersonajes = function () {
-  pokeInfo = [];
   buscarInfoPersonaje().then(() => {
     console.log(pokeInfo);
     container.innerHTML = "";
