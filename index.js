@@ -201,6 +201,9 @@ document.getElementById("busquedaEnApi").addEventListener("click", function () {
 });
 
 function duelo() {
+    if(duelistas.length > 2){
+        return alert("Solo puedes elegir 2 duelistas");
+    }
 
   for(let i = 0;duelistas.length; i++ ){
     console.log("tenemos un duelista");
