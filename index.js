@@ -16,6 +16,9 @@ const btnBorrarPokemones = document.getElementById("borrar");
 const btnCargarPokemones = document.getElementById("cargarPokemones");
 const btnBatalla = document.getElementById("batalla");
 
+let primerPeleador;
+let segundoPeleador ;
+
 
 
 
@@ -126,6 +129,8 @@ let cargarPersonajes = function () {
       button.onclick = function () {
         // Aquí puedes acceder a la información del personaje
         duelistas.push(personaje);
+        primerPeleador = duelistas[0] != null ? duelistas[0] : null;
+        segundoPeleador = duelistas[1] != null ? duelistas[1] : null;
         // Hacer algo con la información del personaje
         console.log(duelistas);
         duelo()
@@ -202,6 +207,7 @@ document.getElementById("busquedaEnApi").addEventListener("click", function () {
 });
 
 function duelo() {
+    
     if(duelistas.length > 2){
         return alert("Solo puedes elegir 2 duelistas");
     }
@@ -242,9 +248,49 @@ function duelo() {
         duelistaDos.appendChild(card);
         }
 
-
+ 
     console.log(duelistas[0]);
   }
      
   }
+document.getElementById("batallaPokemon").addEventListener("click", function () {
+if(duelistas.length <2){
+    return alert("Debes elegir 2 duelistas");
+}
+
+let piedra = 1;
+let papel = 2;
+let tijera = 3;
+
+let player1 = Math.floor(Math.random() * 3) + 1;
+let player2 = Math.floor(Math.random() * 3) + 1;
+
+if(player1 == piedra && player2 == papel){
+    alert(primerPeleador.nombre+" gana");
+}
+if(player1 == piedra && player2 == tijera){
+    alert(segundoPeleador.nombre + " gana");
+}
+
+if(player1 == papel && player2 == piedra){
+    alert(primerPeleador.nombre + " gana");
+}
+
+if(player1 == papel && player2 == tijera){
+    alert(segundoPeleador.nombre + " gana");
+}
+
+if(player1 == tijera && player2 == piedra){
+    alert(segundoPeleador.nombre + " gana");
+}
+
+if(player1 == tijera && player2 == papel){
+    alert(primerPeleador.nombre + " gana");
+}
+
+if(player1 == player2){
+    alert("Empate");
+}
+
+});
   
