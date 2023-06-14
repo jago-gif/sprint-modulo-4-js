@@ -1,11 +1,12 @@
 export class Pokemon {
-  constructor(id, nombre, alto, ancho, imagen, tipo) {
+  constructor(id, nombre, alto, ancho, imagen, tipo, estadisticas) {
     this._id = id;
     this._nombre = nombre;
     this._alto = alto;
     this._ancho = ancho;
     this._imagen = imagen;
     this._tipo = tipo || [];
+    this._estadisticas = estadisticas || [];
   }
 
   // Getter y Setter para la propiedad _id
@@ -54,5 +55,13 @@ export class Pokemon {
   }
   set tipo(tipo) {
     this._tipo = tipo;
+  }
+
+  // Getter y Setter para la propiedad _estadisticas
+  get estadistica() {
+    return this._estadisticas;
+  }
+  set estadistica(estadistica) {
+    this._estadisticas = estadistica;
   }
 }
