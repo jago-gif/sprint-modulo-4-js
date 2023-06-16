@@ -71,18 +71,7 @@ document.getElementById("borrar").addEventListener("click", function () {
   btnBorrarPokemones.classList.add("d-none");
 });
 
-document.getElementById("buscar").addEventListener("keyup", function () {
-  let x = document.getElementById("buscar").value.toLowerCase();
 
-  personajesActivos = [];
-  personajes.results.forEach((personaje) => {
-    if (personaje.name.toLowerCase().includes(x)) {
-      personajesActivos.push(personaje);
-    }
-  });
-
-  cargarPersonajes();
-});
 
 let cargarPersonajes = function () {
   buscarInfoPersonaje().then(() => {
@@ -303,6 +292,8 @@ document.getElementById("busquedaEnApi").addEventListener("click", function () {
   let x = document.getElementById("buscar").value.toLowerCase();
   let apiX = "https://pokeapi.co/api/v2/pokemon/" + x;
   api = apiX;
+      personajes = null;
+
   buscarPersonajes();
 });
 
