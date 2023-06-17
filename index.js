@@ -292,8 +292,9 @@ document.getElementById("busquedaEnApi").addEventListener("click", function () {
   let x = document.getElementById("buscar").value.toLowerCase();
   let apiX = "https://pokeapi.co/api/v2/pokemon/" + x;
   api = apiX;
-      personajes = null;
-
+  personajes = null;
+  personajesActivos = null;
+  pokeInfo = [];
   buscarPersonajes();
 });
 
@@ -305,7 +306,7 @@ function duelo() {
     btnBatalla.classList.remove("d-none");
   }
 
-  for (let i = 0; duelistas.length; i++) {
+  for (let i = 0; duelistas.length>i; i++) {
     console.log("tenemos un duelista");
     campoBatalla.classList.remove("d-none");
     const card = document.createElement("div");
