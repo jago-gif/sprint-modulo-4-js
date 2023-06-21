@@ -1,7 +1,6 @@
 import { Pokemon } from "./pokemon.js";
 
 let sigPag;
-let antPag;
 let personajes;
 let personajesActivos = [];
 let pokeInfo = [];
@@ -29,7 +28,6 @@ const buscarPersonajes = async () => {
     if (respuesta.status === 200) {
       if (personajes.results != null) {
         sigPag = personajes.next;
-        antPag = personajes.previous;
         personajesActivos = personajes.results;
         if (sigPag == null) {
           document.querySelector("#Siguiente").disabled = true;
